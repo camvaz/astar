@@ -1,3 +1,6 @@
+from termcolor import colored, cprint
+import time
+
 class Node():
     """A node class for A* Pathfinding"""
 
@@ -113,7 +116,34 @@ def main():
     end = (7, 6)
 
     path = astar(maze, start, end)
-    print(path)
+
+    print('Laberinto inicial:');
+
+    for i in maze:
+        for j in i:
+            if j == 1:
+                print(colored(f'{j}   ','red', attrs=['bold']), end='');
+            else:
+                print(f'{j}   ', end='');
+        print('\n'); 
+
+    print('Resolviendo');
+
+    for i in path:
+        maze[i[0]][i[1]] = 2;
+    
+    time.sleep(1);
+    print('Solucion:');
+
+    for i in maze:
+        for j in i:
+            if j == 1:
+                print(colored(f'{j}   ','red', attrs=['bold']), end='');
+            elif j == 2:
+                print(colored(f'{j}   ','green', attrs=['bold','blink']),end='');
+            else:
+                print(f'{j}   ', end='');
+        print('\n'); 
 
 
 if __name__ == '__main__':
