@@ -111,7 +111,7 @@ def main(inicio, final):
         print('\n'); 
     
     print(f'Buscando de {start} hasta {end}')
-    print('Resolviendo');
+    print('Resolviendo!');
 
     for i in path:
         maze[i[0]][i[1]] = 2;
